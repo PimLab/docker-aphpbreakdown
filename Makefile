@@ -6,7 +6,8 @@ REPO_NAME = "pimlab/aphpbreakdown"
 all: build test tag
 
 build:
-	@docker build --tag aphpbreakdown:$(VERSION_TAG) ./ \
+	@docker image rm -f $(REPO_NAME):$(VERSION_TAG) aphpbreakdown:$(VERSION_TAG); \
+	docker build --rm --tag aphpbreakdown:$(VERSION_TAG) ./ ; \
 
 test:
 	@docker run --rm --tty aphpbreakdown:$(VERSION_TAG); \
