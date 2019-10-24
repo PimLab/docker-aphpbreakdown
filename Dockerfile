@@ -10,6 +10,8 @@ RUN printf "# aphpbreakdown php cli ini settings\n\
 memory_limit=-1\n\
 " > $PHP_INI_DIR/php-cli.ini
 
+RUN export TERM=xterm
+
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 ENTRYPOINT ["/bin/bash", "/docker-entrypoint.sh"]
